@@ -1,0 +1,19 @@
+# Xcode
+*.xcuserdata
+*.xcuserstate
+*.xcodeproj/project.xcworkspace
+
+# Derived data and build
+build/
+DerivedData/
+
+# Secret keys
+Secrets.plist
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
