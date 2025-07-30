@@ -1,49 +1,65 @@
-# ReaderApp 🗞️
+# ReaderApp 📚
 
-A clean, offline-capable iOS News Reader app that fetches top headlines, allows bookmarking, and works seamlessly with Core Data.
+An elegant iOS application that displays top news headlines fetched from an API. The app is built using the MVVM architecture and Core Data for offline caching. It supports bookmarking, searching, offline persistence, and smooth animations.
 
-## Features
+## Features Implemented ✅
 
-- 📲 Top headlines list
+- 📡 Fetch Top Headlines from API
 - 🔍 Search functionality
-- ⭐ Bookmark and manage favorite articles
-- 🔁 Pull to refresh with force refresh support
-- 🌓 Dark mode support
-- 🧠 Smart caching with Core Data
-- 🔃 Automatic UI updates via `NSFetchedResultsController`
-- 🧹 Background deletion with `NSBatchDeleteRequest`
-- 🌐 Open articles in `SFSafariViewController`
-- 🖼️ Image loading using **Kingfisher**
-- 📡 Networking via **URLSession** with a custom APIService
+- 🌙 Dark Mode support
+- 📥 Offline-first design (CoreData backed)
+- 📌 Bookmark and Unbookmark articles
+- 🧠 MVVM architecture for scalability
+- 🧹 Efficient Core Data cleanup using NSBatchDeleteRequest
+- 📱 UITableView with dynamic heights and smooth UI
+- 🧭 Open articles in SFSafariViewController
+- 🔄 Pull to Refresh
+- 🔎 Case-insensitive search using NSPredicate
+- 🔗 Kingfisher for image caching
+- 📊 NSFetchedResultsController for efficient state updates
 
-## Tools Used
+## Tools & Frameworks Used 🛠
 
-- **Core Data** – Persistent storage for articles and bookmarks
-- **NSFetchedResultsController** – Efficient updates to UI when data changes
-- **NSBatchDeleteRequest** – Efficient deletion of old unbookmarked data
-- **URLSession** – Used through a custom `APIService` for network calls to fetch top headlines
-- **SFSafariViewController** – In-app browser to read full articles
-- **Kingfisher** – Async image downloading and caching
+- **Core Data**: For local persistent storage
+- **Kingfisher**: For image downloading and caching
+- **NSFetchedResultsController**: To observe changes in bookmarks
+- **NSBatchDeleteRequest**: To efficiently clean old articles
+- **SFSafariViewController**: To open full news in browser
+- **URLSession**: Used for networking via APIService abstraction
+- **Alamofire** *(Optional)*: Can be used for advanced networking
+- **SDWebImage** *(Optional)*: Alternative to Kingfisher if preferred
 
-## Project Structure
+## Architecture 🧱
 
-- `ArticleListViewController` – Displays the top headlines and supports bookmarking
-- `BookmarkViewController` – Shows bookmarked articles
-- `ArticleRepository` – Handles all data logic between API and Core Data
-- `ArticleDataStore` – Manages Core Data interactions
-- `ArticleListViewModel` & `BookmarkViewModel` – MVVM logic layer
+MVVM layered with Repository and DataStore pattern for separation of concerns and testability.
 
-## Getting Started
+```
+ViewController
+   ↓
+ViewModel
+   ↓
+Repository
+   ↓
+DataStore + APIService
+```
+
+## Requirements 📋
+
+- iOS 15.0+
+- Xcode 14+
+
+## Getting Started ▶️
 
 1. Clone the repo:
 ```bash
 git clone https://github.com/Akash-R97/ReaderApp.git
+cd ReaderApp
 ```
 
 2. Open `ReaderApp.xcodeproj` in Xcode
 
-3. Build and run the app on the Simulator or device
+3. Run the project on a simulator or device.
 
-## Author
+---
 
-Akash Razdan
+🧠 Created by Akash Razdan. Feel free to contribute!
