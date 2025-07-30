@@ -17,8 +17,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-                
+        
+        // MARK: - ViewControllers
+        let headlinesVC = ArticleListViewController()
+        let bookmarksVC = BookmarkViewController()
+        
+        // MARK: - Embed in Navigation Controllers
+        let headlinesNav = UINavigationController(rootViewController: headlinesVC)
+        headlinesNav.tabBarItem = UITabBarItem(title: "Headlines", image: UIImage(systemName: "newspaper"), tag: 0)
+        
+        let bookmarksNav = UINavigationController(rootViewController: bookmarksVC)
+        bookmarksNav.tabBarItem = UITabBarItem(title: "Bookmarks", image: UIImage(systemName: "bookmark"), tag: 1)
+        
+        // MARK: - Setup TabBarController
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [headlinesNav, bookmarksNav]
+        tabBarController.tabBar.tintColor = .systemBlue
+        tabBarController.tabBar.backgroundColor = .systemBackground
+        
+        // MARK: - Window Setup
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

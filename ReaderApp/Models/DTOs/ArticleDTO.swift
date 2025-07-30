@@ -14,4 +14,3 @@ struct ArticleDTO: Codable {
     let urlToImage: String?
     let publishedAt: String
 }
-
